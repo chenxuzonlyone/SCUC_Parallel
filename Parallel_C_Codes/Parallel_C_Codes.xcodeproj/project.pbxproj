@@ -61,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				DE2BAD7F1DE391A400445F14 /* main.c */,
-				DE3ECA101DE414CF00B272A9 /* parallel_functions.c */,
 				DE3ECA111DE414CF00B272A9 /* parallel_functions.h */,
+				DE3ECA101DE414CF00B272A9 /* parallel_functions.c */,
 			);
 			path = Parallel_C_Codes;
 			sourceTree = "<group>";
