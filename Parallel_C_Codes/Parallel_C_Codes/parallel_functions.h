@@ -10,7 +10,7 @@
 #define parallel_functions_h
 
 #include <stdio.h>
-#define BUFFER_MAX 1024
+#define BUFFER_MAX 2048
 
 
 
@@ -79,7 +79,7 @@ typedef struct SRT_Data{
 /*Function Prototypes*/
 int file_size(FILE * fstream, int *row, int *col);
 int Data_Read( FILE * fstream, int row, int col, double* info);
-int Data_Read_Corrective_Test(FILE *outputfile, int row, int col, double *testing_array);
+int Data_Read_Corrective_Test(int row, int col, double *testing_array, char*name);
 
 
 
