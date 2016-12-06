@@ -88,5 +88,5 @@ clc
 
 M_1 = csvread('/Users/zhangcaihua/Desktop/Parallel_Codes_Collaboration/Data_CSV_updated/ShiftFactorData.csv');
 N_1 = importdata('/Users/zhangcaihua/Desktop/SCUC_Parallel/Parallel_C_Codes/Build/Products/Debug/SF_186');
-X_1 = M_1(end,:) - N_1;
+X_1 = M_1 - N_1;
 max_1 = max(max(X_1));

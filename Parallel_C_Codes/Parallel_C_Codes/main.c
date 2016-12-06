@@ -97,88 +97,53 @@ int main(int argc, const char * argv[]) {
     SRSystemRequirementData = calloc(row_SRTData*col_SRTData, sizeof(double));
     Data_Read( f_SRTData_stream, row_SRTData, col_SRTData, SRSystemRequirementData);
     
+    /* **Read data to structure** */
+    
+    //GenCorrectiveDispatchLimitData Read
     GenCorrectiveDispatchLimitData_Struct GenCorrectiveDispatchLimitData_Set;
-    Data_StoreTo_Structure (&GenCorrectiveDispatchLimitData_Set.Gen_BusNum, GenCorrectiveDispatchLimitData, row_GenCorrective, col_GenCorrective) ;
+    Data_StoreTo_Structure (&GenCorrectiveDispatchLimitData_Set.Gen_BusNum, GenCorrectiveDispatchLimitData, row_GenCorrective, col_GenCorrective) ; //It only accept the first element address of the structure
     
+    //GenData Read
+    GenData_Struct GenData_Set;
+    Data_StoreTo_Structure (&GenData_Set.Gen_BusNum, GenData, row_GenData, col_GenData) ;//It only accept the first element address of the structure
     
+    //LineData Read
+    LineData_Struct LineData_Set;
+    Data_StoreTo_Structure (&LineData_Set.Line_Num, LineData, row_LineData, col_LineData) ;//It only accept the first element address of the structure
     
+    //LoadFactor Read
+    LoadFactor_Struct LoadFactor_Set;
+    Data_StoreTo_Structure (&LoadFactor_Set.LoadFactor_BusNum, LoadFactor, row_LoadFactor, col_LoadFactor) ;//It only accept the first element address of the structure
     
-//    printf("%p\n", &GenCorrectiveDispatchLimitData_Set.Gen_BusNum);
-//    printf("%p\n", &GenCorrectiveDispatchLimitData_Set.Gen_Pmax);
-//    printf("%p\n", &GenCorrectiveDispatchLimitData_Set.Gen_Pmin);
-//    printf("%p\n", &GenCorrectiveDispatchLimitData_Set.Gen_RampUp);
-//    printf("%p\n", &GenCorrectiveDispatchLimitData_Set.Gen_RampDown);
-  
+    //LoadForecastData Read
+    LoadForecastData_Struct LoadForecastData_Set;
+    Data_StoreTo_Structure (&LoadForecastData_Set.LoadForecast_CorrectionLoad, LoadForecastData, row_LoadForecast, col_LoadForecast) ;//It only accept the first element address of the structure
     
+    //SRCostandMaxSustainedRateData Read
+    SRCostandMaxSustainedRateData_Struct SRCostandMaxSustainedRateData_Set;
+    Data_StoreTo_Structure (&SRCostandMaxSustainedRateData_Set.SR_MSR_BusNum, SRCostandMaxSustainedRateData, row_SRandMSRData, col_SRandMSRData) ;//It only accept the first element address of the structure
     
+    //SRSystemRequirementData Read
+    SRSystemRequirementData_Struct SRSystemRequirementData_Set;
+    Data_StoreTo_Structure (&SRSystemRequirementData_Set.SRT_SpiningResreve, SRSystemRequirementData, row_SRTData, col_SRTData) ;//It only accept the first element address of the structure
     
+    //SFData Read (The ShiftFactor use different kind of data structure. It is an array of pointer.)
+    double *SFData_Set[row_SFData];
+    for (int i = 0; i < row_SFData; i++) {
+        SFData_Set[i] = &ShiftFactorData[i*col_SFData];
+    }
     
-    
-    
-    
-    
-//    double ** struct_member_ptr;
-//    struct_member_ptr = &GenCorrectiveDispatchLimitData_Set.Gen_BusNum; // This is the first element of the structure
-//    for (int i = 0; i < row_GenCorrective; i ++){
-//        //printf("%p\n", struct_member_ptr);
-//        //struct_member_ptr++;
-//        *struct_member_ptr = &GenCorrectiveDispatchLimitData[i*col_GenCorrective];
-//        struct_member_ptr++;
-//        //printf("%p\n", *struct_member_ptr);
+
+//    for (int i = 0; i < col_SFData; i++) {
+//        printf("%f\n", SFData_Set[185][i]);
 //    }
-    
-    
-    
-    
-    
-    
-    
-    
-//    printf("\n\n\n");
-//    printf("%p\n", GenCorrectiveDispatchLimitData_Set.Gen_BusNum);
-//    printf("%p\n", GenCorrectiveDispatchLimitData);
-    
-    
+//    
 //    FILE *outputfile;
-//    outputfile = fopen("GenCorrectiveData", "w");
-//
-//        for (int i = 0; i<col_GenCorrective; i++) {
-//            //printf("%f\n", GenCorrectiveDispatchLimitData_Set.Gen_BusNum[i]);
-//            fprintf(outputfile, "%f\t", GenCorrectiveDispatchLimitData_Set.Gen_BusNum[i]);
-//        }
-//    fprintf(outputfile, "\n");
-//        for (int i = 0; i<col_GenCorrective; i++) {
-//            fprintf(outputfile, "%f\t", GenCorrectiveDispatchLimitData_Set.Gen_Pmax[i]);
-//        }
-//    fprintf(outputfile, "\n");
-//        for (int i = 0; i<col_GenCorrective; i++) {
-//            //fprintf(outputfile, "\n");
-//            fprintf(outputfile, "%f\t", GenCorrectiveDispatchLimitData_Set.Gen_Pmin[i]);
-//        }
-//    fprintf(outputfile, "\n");
-//        for (int i = 0; i<col_GenCorrective; i++) {
-//            //fprintf(outputfile, "\n");
-//            fprintf(outputfile, "%f\t", GenCorrectiveDispatchLimitData_Set.Gen_RampUp[i]);
-//        }
-//    fprintf(outputfile, "\n");
-//        for (int i = 0; i<col_GenCorrective; i++) {
-//            //fprintf(outputfile, "\n");
-//            fprintf(outputfile, "%f\t", GenCorrectiveDispatchLimitData_Set.Gen_RampDown[i]);
-//        }
-//    fprintf(outputfile, "\n");
-//        for (int i = 0; i<col_GenCorrective; i++) {
-//            //fprintf(outputfile, "\n");
-//            fprintf(outputfile, "%f\t", GenCorrectiveDispatchLimitData_Set.Gen_CorrectiveDispatchLimit[i]);
-//        }
+//    outputfile = fopen("SF_186", "w");
+//    for (int i = 0; i < col_SFData; i++) {
+//        fprintf(outputfile, "%f\t", SFData_Set[185][i]);
+//    }
 //    fclose(outputfile);
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     /* **Data read correctiveness testing** */
