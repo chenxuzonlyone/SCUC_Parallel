@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DE2BAD801DE391A400445F14 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DE2BAD7F1DE391A400445F14 /* main.c */; };
 		DE3ECA121DE414CF00B272A9 /* parallel_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = DE3ECA101DE414CF00B272A9 /* parallel_functions.c */; };
+		DE59FD211DF87325009152F7 /* libgurobi65.so in Frameworks */ = {isa = PBXBuildFile; fileRef = DE59FD201DF87325009152F7 /* libgurobi65.so */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,7 @@
 		DE2BAD7F1DE391A400445F14 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		DE3ECA101DE414CF00B272A9 /* parallel_functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parallel_functions.c; sourceTree = "<group>"; };
 		DE3ECA111DE414CF00B272A9 /* parallel_functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parallel_functions.h; sourceTree = "<group>"; };
+		DE59FD201DF87325009152F7 /* libgurobi65.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgurobi65.so; path = ../../../../../Library/gurobi652/mac64/lib/libgurobi65.so; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE59FD211DF87325009152F7 /* libgurobi65.so in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +49,7 @@
 			children = (
 				DE2BAD7E1DE391A400445F14 /* Parallel_C_Codes */,
 				DE2BAD7D1DE391A400445F14 /* Products */,
+				DE59FD1F1DF87325009152F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +69,14 @@
 				DE3ECA101DE414CF00B272A9 /* parallel_functions.c */,
 			);
 			path = Parallel_C_Codes;
+			sourceTree = "<group>";
+		};
+		DE59FD1F1DF87325009152F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE59FD201DF87325009152F7 /* libgurobi65.so */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +234,17 @@
 		DE2BAD841DE391A400445F14 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/Library/gurobi652/mac64/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/gurobi652/mac64/lib",
+					/usr/local/lib,
+				);
+				OTHER_LDFLAGS = "-lmpi";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -229,6 +252,17 @@
 		DE2BAD851DE391A400445F14 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/Library/gurobi652/mac64/include,
+					/usr/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/gurobi652/mac64/lib",
+					/usr/local/lib,
+				);
+				OTHER_LDFLAGS = "-lmpi";
+				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
