@@ -91,6 +91,7 @@ int Data_Read( FILE * fstream, int row, int col, double* info)
 
 /*Structure Read*/
 // This will let the structure store the address of beginning of each row. The array will be parsed as rows through column number even the origional data array is a very long array
+// This will read double variables array
 void Data_StoreTo_Structure (double ** struct_member_ptr, double * array_data_ptr,int row, int col) // This will accept the address of first element of the structure. The structure will store same type of pointers.
 {
     

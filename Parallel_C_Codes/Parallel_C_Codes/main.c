@@ -133,17 +133,6 @@ int main(int argc, const char * argv[]) {
         SFData_Set[i] = &ShiftFactorData[i*col_SFData];
     }
     
-
-//    for (int i = 0; i < col_SFData; i++) {
-//        printf("%f\n", SFData_Set[185][i]);
-//    }
-//    
-//    FILE *outputfile;
-//    outputfile = fopen("SF_186", "w");
-//    for (int i = 0; i < col_SFData; i++) {
-//        fprintf(outputfile, "%f\t", SFData_Set[185][i]);
-//    }
-//    fclose(outputfile);
     
     
     /* **Data read correctiveness testing** */
