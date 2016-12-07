@@ -190,7 +190,7 @@ void p0_send_decision(int process_size,int stop_decision)
     {
         id = i;
         tag = i;
-        printf("the sent stop_decision%d is %d \n",id ,stop_decision);
+        printf("the sent nonstop_decision%d is %d \n",id ,stop_decision);
         ierr = MPI_Send ( &stop_decision, 1, MPI_INT, id, tag, MPI_COMM_WORLD );
     }
 }
@@ -232,7 +232,7 @@ void p0_receive_output ( double *output, int sending_process_ID, int sending_pro
     int id_source = sending_process_ID;
     int tag_source = sending_process_tag;
     
-    ierr = MPI_Recv ( output, recv_size, MPI_DOUBLE, id_source, tag_source, MPI_COMM_WORLD, &status ); // slave message id is (100+id)
+    ierr = MPI_Recv ( output, recv_size, MPI_DOUBLE, id_source, tag_source, MPI_COMM_WORLD, &status ); 
     printf ( "\n" );
     
     return;
