@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		DE2BAD801DE391A400445F14 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = DE2BAD7F1DE391A400445F14 /* main.c */; };
-		DE3ECA121DE414CF00B272A9 /* parallel_functions.c in Sources */ = {isa = PBXBuildFile; fileRef = DE3ECA101DE414CF00B272A9 /* parallel_functions.c */; };
 		DE59FD211DF87325009152F7 /* libgurobi65.so in Frameworks */ = {isa = PBXBuildFile; fileRef = DE59FD201DF87325009152F7 /* libgurobi65.so */; };
+		DE9D66881E284A90008EE602 /* functions_MPIrelated.c in Sources */ = {isa = PBXBuildFile; fileRef = DE9D66851E284A90008EE602 /* functions_MPIrelated.c */; };
+		DE9D66891E284A90008EE602 /* functions.c in Sources */ = {isa = PBXBuildFile; fileRef = DE9D66861E284A90008EE602 /* functions.c */; };
+		DE9D668A1E284A90008EE602 /* input_data.c in Sources */ = {isa = PBXBuildFile; fileRef = DE9D66871E284A90008EE602 /* input_data.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,11 +27,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DE2BAD7C1DE391A400445F14 /* Parallel_C_Codes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Parallel_C_Codes; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE2BAD7C1DE391A400445F14 /* Parallel_C_Codes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = Parallel_C_Codes; path = /Users/zhangcaihua/Desktop/SCUC_Parallel/Parallel_C_Codes/build/Debug/Parallel_C_Codes; sourceTree = "<absolute>"; };
 		DE2BAD7F1DE391A400445F14 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		DE3ECA101DE414CF00B272A9 /* parallel_functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = parallel_functions.c; sourceTree = "<group>"; };
-		DE3ECA111DE414CF00B272A9 /* parallel_functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = parallel_functions.h; sourceTree = "<group>"; };
 		DE59FD201DF87325009152F7 /* libgurobi65.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgurobi65.so; path = ../../../../../Library/gurobi652/mac64/lib/libgurobi65.so; sourceTree = "<group>"; };
+		DE9D66821E284A90008EE602 /* declare_function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = declare_function.h; sourceTree = "<group>"; };
+		DE9D66831E284A90008EE602 /* declare_MPIrelated_function.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = declare_MPIrelated_function.h; sourceTree = "<group>"; };
+		DE9D66841E284A90008EE602 /* declare_variable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = declare_variable.h; sourceTree = "<group>"; };
+		DE9D66851E284A90008EE602 /* functions_MPIrelated.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = functions_MPIrelated.c; sourceTree = "<group>"; };
+		DE9D66861E284A90008EE602 /* functions.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = functions.c; sourceTree = "<group>"; };
+		DE9D66871E284A90008EE602 /* input_data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = input_data.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,25 +54,20 @@
 			isa = PBXGroup;
 			children = (
 				DE2BAD7E1DE391A400445F14 /* Parallel_C_Codes */,
-				DE2BAD7D1DE391A400445F14 /* Products */,
 				DE59FD1F1DF87325009152F7 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		DE2BAD7D1DE391A400445F14 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DE2BAD7C1DE391A400445F14 /* Parallel_C_Codes */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DE2BAD7E1DE391A400445F14 /* Parallel_C_Codes */ = {
 			isa = PBXGroup;
 			children = (
+				DE9D66821E284A90008EE602 /* declare_function.h */,
+				DE9D66831E284A90008EE602 /* declare_MPIrelated_function.h */,
+				DE9D66841E284A90008EE602 /* declare_variable.h */,
+				DE9D66851E284A90008EE602 /* functions_MPIrelated.c */,
+				DE9D66861E284A90008EE602 /* functions.c */,
+				DE9D66871E284A90008EE602 /* input_data.c */,
 				DE2BAD7F1DE391A400445F14 /* main.c */,
-				DE3ECA111DE414CF00B272A9 /* parallel_functions.h */,
-				DE3ECA101DE414CF00B272A9 /* parallel_functions.c */,
 			);
 			path = Parallel_C_Codes;
 			sourceTree = "<group>";
@@ -105,7 +106,7 @@
 		DE2BAD741DE391A300445F14 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = zhangcaihua;
 				TargetAttributes = {
 					DE2BAD7B1DE391A300445F14 = {
@@ -122,7 +123,7 @@
 				en,
 			);
 			mainGroup = DE2BAD731DE391A300445F14;
-			productRefGroup = DE2BAD7D1DE391A400445F14 /* Products */;
+			productRefGroup = DE2BAD731DE391A300445F14;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -136,7 +137,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE3ECA121DE414CF00B272A9 /* parallel_functions.c in Sources */,
+				DE9D66881E284A90008EE602 /* functions_MPIrelated.c in Sources */,
+				DE9D66891E284A90008EE602 /* functions.c in Sources */,
+				DE9D668A1E284A90008EE602 /* input_data.c in Sources */,
 				DE2BAD801DE391A400445F14 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,10 +165,12 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				COPY_HEADERS_RUN_UNIFDEF = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -184,9 +189,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Library/gurobi652/mac64/include,
+					/usr/local/include,
+				);
+				LD_GENERATE_MAP_FILE = NO;
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/gurobi652/mac64/lib",
+					/usr/local/lib,
+				);
+				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-lmpi",
+					"-lm",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -209,10 +230,12 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
+				COPY_HEADERS_RUN_UNIFDEF = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -225,8 +248,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/Library/gurobi652/mac64/include,
+					/usr/local/include,
+				);
+				LD_GENERATE_MAP_FILE = NO;
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/gurobi652/mac64/lib",
+					/usr/local/lib,
+				);
+				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = (
+					"-lmpi",
+					"-lm",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
